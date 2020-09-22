@@ -11,5 +11,8 @@
     "url": "https://github.com/eduardomantz291/DevNavigator.git"
   },
   "author": "Eduardo Mantz",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^10.1.2"
+  }
 }
