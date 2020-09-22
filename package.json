@@ -1,0 +1,15 @@
+{
+  "name": "devnavigator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "\u0016https://github.com/eduardomantz291/DevNavigator.git"
+  },
+  "author": "Eduardo Mantz",
+  "license": "MIT"
+}
