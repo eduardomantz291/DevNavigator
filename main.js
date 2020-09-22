@@ -1,7 +1,10 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, globalShortcut } = require('electron')
+const config = require("./config")
+
+let win;
 
 function createWindow () {
-  const win = new BrowserWindow({
+  win = new BrowserWindow({
     width: 500,
     height: 450,
     titleBarStyle: 'hidden',
@@ -11,12 +14,20 @@ function createWindow () {
     }
   })
 
-  win.loadURL('http://localhost:5500/')
+  win.loadURL(config.url)
 
   //win.webContents.openDevTools()
 }
 
-app.whenReady().then(createWindow)
+function toggleDevTools() {
+  win.webContents.toggleDevTools()
+}
+
+function createShortcust() {
+  globalShortcut.register("CmdORCtrl+z", toggleDevTools)
+}
+
+app.whenReady().then(createWindow).then(createShortcust)
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
