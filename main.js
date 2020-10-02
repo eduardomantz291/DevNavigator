@@ -1,20 +1,19 @@
 const { app, BrowserWindow, globalShortcut } = require('electron')
-const config = require("./config")
+const URL = "http://localhost:3000/"
 
 let win;
 
 function createWindow () {
   win = new BrowserWindow({
-    width: 500,
-    height: 450,
+    width: 1080,
+    height: 660,
     titleBarStyle: 'hidden',
-    alwaysOnTop: true,
     webPreferences: {
       nodeIntegration: true
     }
   })
 
-  win.loadURL(config.url)
+  win.loadURL(URL)
 
   //win.webContents.openDevTools()
 }
@@ -24,7 +23,7 @@ function toggleDevTools() {
 }
 
 function createShortcust() {
-  globalShortcut.register("CmdORCtrl+z", toggleDevTools)
+  globalShortcut.register("CmdORCtrl+y", toggleDevTools)
 }
 
 app.whenReady().then(createWindow).then(createShortcust)
